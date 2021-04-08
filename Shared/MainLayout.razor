@@ -1,0 +1,27 @@
+@inherits LayoutComponentBase
+@using System.Globalization
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            <a href="/Tentang" target="_blank">Tentang</a>
+            <a href="#" target="_blank">@Jam</a>
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code 
+{
+
+
+    private string Jam = DateTime.Now.ToString("HH:MM", CultureInfo.InvariantCulture);
+
+}

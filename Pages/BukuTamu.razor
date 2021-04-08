@@ -1,0 +1,76 @@
+@page "/BukuTamu"
+@using AldesApp.Data
+
+<EditForm Model="@Tamu1" OnSubmit="@FormSubmitted">
+    <DataAnnotationsValidator />
+ 
+  <label for="@nameof(Tamu1.Name)" class="form-label">Name</label>
+  <InputText Class="form-control" @bind-Value="Tamu1.Name" />
+  <ValidationMessage For="() => Tamu1.Name" /> 
+
+  <label  class="form-label">Email</label>
+  <InputText Class="form-control" @bind-Value="Tamu1.Email" />
+  <ValidationMessage For="() =>  Tamu1.Email" /> 
+  <button type="submit">Submit</button>
+
+</EditForm>
+
+@code {
+    private Tamu Tamu1 = new Tamu();
+
+    private void FormSubmitted()
+    {
+ 
+    }
+}
+
+@*
+  <ValidationMessage For="exampleModel.Name" />
+<ValidationSummary />
+*@
+
+@*
+@using .Model
+
+<EditForm Model="@employee" OnSubmit="@FormSubmitted">
+  <DataAnnotationsValidator />
+
+  <label for="@nameof(contactDetails.Name)" class="form-label">Name</label>
+  <InputText Class="form-control" @bind-Value="contactDetails.Name" />
+  <ValidationMessage For="contactDetails.Name" />
+
+  <label for="@nameof(contactDetails.Email)" class="form-label">Email</label>
+  <InputText Class="form-control" @bind-Value="contactDetails.Email" />
+  <ValidationMessage For="contactDetails.Email" />
+
+  <button class="btn btn-primary mt-3" type="submit">Submit</button>
+</EditForm>
+
+
+@code {
+  //ContactDetails ContactDetails = new ContactDetails();
+  [Parameter]
+  public Employee employee { get; set; }
+  // contactDetails = new ContactDetails();
+  string LastSubmitResult;
+  void FormSubmitted(EditContext editContext)
+  {
+    //LastSubmitResult = "OnValidSubmit was executed";
+  }
+  void InvalidFormSubmitted(EditContext editContext)
+  {
+    //LastSubmitResult = "OnInvalidSubmit was executed";
+  }
+
+}
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<FormAbsen Title="Mohon Masukan Data Diri Terlebih Dahulu" />
+
+*@
+

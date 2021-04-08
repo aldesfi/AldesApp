@@ -1,0 +1,52 @@
+@page "/"
+@using System.Globalization
+
+<h1>@Title</h1>
+
+Welcome to <b>Aldes.id</b> new app. Isi 
+
+<a href="/BukuTamu" > Buku Tamu </a>
+
+@code 
+{
+         
+void SomeStartupMethod()
+{
+    //string MinDate;
+    JamString = DateTime.Now.ToString("HHMM", CultureInfo.InvariantCulture);
+
+    int Jam = Int16.Parse(JamString); 
+    if(Jam>1800)
+    {
+        Title = "Selamat Malam";
+    }
+    else if(Jam<1800 && Jam>1500)
+    {
+         Title = "Selamat Sore";
+    }
+    else if(Jam<1500 && Jam>1200)
+    {
+        Title = "Selamat Siang";
+    }
+     else if(Jam<1200 && Jam>0300)
+    {
+        Title = "Selamat Pagi";
+    }
+    
+}
+
+Task SomeStartupTask()
+{
+    // Do some task based work
+    return Task.CompletedTask;
+}
+
+protected override void OnInitialized()
+{
+    SomeStartupMethod();
+}
+
+    private string Title = "-";
+    private string JamString = "0000";
+    
+}
